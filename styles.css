@@ -4,3 +4,6 @@
 .section-heading p{text-align:right;padding-right:24px}
 @media(max-width:1100px){.section-heading p{padding-right:16px}}
 @media(max-width:700px){.section-heading p{padding-right:8px}}
+
+/* Более компактная форма на мобильных экранах. */
+@media(max-width:700px){.contact{gap:24px}.contact-body{gap:24px}.contact-form,.form-row{gap:14px}.contact-form label{gap:6px}.contact-form input{height:52px}.contact-form input,.contact-form textarea{font-size:16px;line-height:24px;padding:13px 16px}.contact-form textarea{min-height:84px}.form-bottom{gap:12px}}
