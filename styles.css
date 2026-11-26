@@ -7,3 +7,6 @@
 
 /* Более компактная форма на мобильных экранах. */
 @media(max-width:700px){.contact{gap:24px}.contact-body{gap:24px}.contact-form,.form-row{gap:14px}.contact-form label{gap:6px}.contact-form input{height:52px}.contact-form input,.contact-form textarea{font-size:16px;line-height:24px;padding:13px 16px}.contact-form textarea{min-height:84px}.form-bottom{gap:12px}}
+
+@font-face{font-family:'Science Gothic Local';src:url('public/fonts/science-gothic.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+.hero h1 em{font-family:'Science Gothic Local',Manrope,sans-serif;font-style:normal;font-variation-settings:'slnt' -10,'wdth' 100,'CTRS' 0}
