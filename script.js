@@ -14,7 +14,7 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
 } else revealItems.forEach(item => item.classList.add('is-visible'));
 const cursor = document.querySelector('.case-cursor');
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.querySelectorAll('.case-cover').forEach(cover => {
+    document.querySelectorAll('.case:not(.case-cta) .case-cover').forEach(cover => {
         cover.addEventListener('pointerenter', event => {
             cursor.style.left = `${event.clientX}px`;
             cursor.style.top = `${event.clientY}px`;
@@ -35,7 +35,7 @@ form.addEventListener('submit', async event => {
     if (!form.reportValidity()) return;
     const endpoint = form.dataset.endpoint.trim();
     if (!endpoint) {
-        status.textContent = 'Форма пока подключается. Напишите нам на faberlab@inbox.ru.';
+        status.textContent = 'Форма пока подключается. Напишите нам на faberlab@mail.ru.';
         return;
     }
     const button = form.querySelector('button[type="submit"]');
@@ -55,7 +55,7 @@ form.addEventListener('submit', async event => {
         form.reset();
         status.textContent = 'Спасибо! Заявка отправлена.';
     } catch {
-        status.textContent = 'Не получилось отправить заявку. Попробуйте ещё раз или напишите на faberlab@inbox.ru.';
+        status.textContent = 'Не получилось отправить заявку. Попробуйте ещё раз или напишите на faberlab@mail.ru.';
     } finally {
         button.disabled = false;
     }

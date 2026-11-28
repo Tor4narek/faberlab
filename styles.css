@@ -1,16 +1,30 @@
 :root {
-    --lime: #a0db0d;
-    --raspberry: #e2074c;
-    --white: #fff;
-    --ink: #000;
+    --color-brand-lime: #a0db0d;
+    --color-brand-raspberry: #e2074c;
+    --color-surface: #fff;
+    --color-ink: #000;
+    --color-canvas: #f3f3f3;
+    --color-text-secondary: #bfbfbf;
+    --color-panel-muted: rgba(255, 255, 255, .2);
+    --lime: var(--color-brand-lime);
+    --raspberry: var(--color-brand-raspberry);
+    --white: var(--color-surface);
+    --ink: var(--color-ink);
     --surface-cover: #171717;
     --surface-card: rgba(36, 36, 36, .62);
-    --surface-field: #f3f3f3;
+    --surface-field: var(--color-canvas);
     --text-muted: #777;
     --width: 1312px;
     --section-space: 128px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --radius-button: 16px;
+    --radius-card: 24px;
+    --radius-sticker-major: 16px;
+    --radius-sticker-minor: 4px;
+    --radius-md: var(--radius-button);
+    --radius-lg: var(--radius-card);
     --ease-out: cubic-bezier(.2, .8, .2, 1);
     font-family: Manrope, Arial, sans-serif;
     color: var(--white);
@@ -76,6 +90,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     transition: transform .45s var(--ease-out), filter .45s
 }
 
+.brand-long img {
+    width: 332.626px;
+    height: 25.579px
+}
+
 .navigation {
     display: flex;
     gap: 32px;
@@ -93,9 +112,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: var(--space-8);
     min-height: 56px;
-    padding: 16px 24px;
+    padding: var(--space-16) var(--space-24);
     border: 0;
     border-radius: var(--radius-md);
     font-size: 16px;
@@ -153,7 +172,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     max-width: 841px;
     margin: 80px 0 0;
     font-size: 22px;
-    line-height: 32px
+    line-height: 32px;
+    color: var(--color-text-secondary)
 }
 
 .glow {
@@ -185,7 +205,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     justify-content: center;
     padding: 12px 18px;
     border: 2px solid var(--white);
-    border-radius: var(--radius-md);
     box-shadow: 0 10px 20px #0003;
     font-size: 12px;
     font-weight: 700;
@@ -195,29 +214,74 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .sticker-lime {
     background: var(--lime);
-    color: var(--ink)
+    color: var(--ink);
+    border-radius: var(--radius-sticker-major) var(--radius-sticker-minor) var(--radius-sticker-major) var(--radius-sticker-minor)
 }
 
 .sticker-raspberry {
     background: var(--raspberry);
-    color: var(--white)
+    color: var(--white);
+    border-radius: var(--radius-sticker-minor) var(--radius-sticker-major) var(--radius-sticker-minor) var(--radius-sticker-major)
 }
 
-.hero-sticker {
+.hero-stickers {
     position: absolute;
-    z-index: 2
+    z-index: 2;
+    top: 157px;
+    right: -3px;
+    width: 310px;
+    height: 320px;
+    pointer-events: none
 }
 
-.hero-sticker-top {
-    right: 10%;
-    top: 96px;
-    transform: rotate(4deg)
+.hero-stickers .sticker {
+    position: absolute;
+    padding: 15px 22px;
+    border-width: 2.5px;
+    font-size: 15px;
+    line-height: 30px;
+    box-shadow: 0 12px 25px #0003
 }
 
-.hero-sticker-bottom {
-    right: 7%;
-    top: 447px;
-    transform: rotate(-4deg)
+.hero-sticker-architecture {
+    left: 59px;
+    top: 0
+}
+
+.hero-sticker-design {
+    left: 0;
+    top: 37px;
+    transform: rotate(9.46deg)
+}
+
+.hero-sticker-code {
+    right: 0;
+    top: 106px;
+    transform: rotate(2.62deg)
+}
+
+.hero-sticker-launch {
+    right: 43px;
+    top: 130px;
+    transform: rotate(11.45deg)
+}
+
+.hero-sticker-ixd {
+    right: 4px;
+    top: 201px;
+    transform: rotate(5.9deg)
+}
+
+.hero-sticker-devops {
+    right: 90px;
+    top: 197px;
+    transform: rotate(8.68deg)
+}
+
+.hero-sticker-load {
+    right: 18px;
+    top: 251px;
+    transform: rotate(-6.32deg)
 }
 
 .cases {
@@ -305,7 +369,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     align-items: baseline;
     justify-content: space-between;
     gap: 24px;
-    min-width: 0
+    min-width: 0;
+    margin-top: 9px;
+    padding-inline: var(--space-16)
 }
 
 .case-caption h3, .case-caption p {
@@ -321,6 +387,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .case-caption p {
     text-align: right
+}
+
+.case-cta .case-cover {
+    display: grid;
+    place-items: center;
+    background: var(--color-panel-muted);
+    color: var(--color-surface);
+    transition: background-color .25s var(--ease-out), transform .25s var(--ease-out)
+}
+
+.case-cta .case-cover span {
+    font-size: 39px;
+    line-height: 1;
+    letter-spacing: -.015em
 }
 
 .case-cursor {
@@ -383,12 +463,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         transform: rotate(3deg) translateY(-3px)
     }
 
+    .case-cta:hover .case-cover {
+        background-color: rgba(255, 255, 255, .28);
+        transform: translateY(-3px)
+    }
+
     .contact-details a:hover {
         text-decoration: underline;
         text-underline-offset: 4px
     }
 
-    .case-cover:hover {
+    .case:not(.case-cta) .case-cover:hover {
         cursor: none
     }
 }
@@ -622,6 +707,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         font-size: clamp(62px, 8.2vw, 110px)
     }
 
+    .brand-long img {
+        width: 260px;
+        height: auto
+    }
+
+    .hero-stickers {
+        right: -10px;
+        transform: scale(.82);
+        transform-origin: right top
+    }
+
     .case-caption h3, .case-caption p {
         font-size: 17px;
         line-height: 26px
@@ -673,6 +769,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         height: auto
     }
 
+    .brand-long img {
+        width: 145px
+    }
+
     .navigation {
         gap: 16px;
         font-size: 14px
@@ -698,15 +798,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         margin-top: 40px
     }
 
-    .hero-sticker-top {
-        top: 46px;
-        right: 3%
-    }
-
-    .hero-sticker-bottom {
-        top: auto;
-        bottom: 26px;
-        right: 3%
+    .hero-stickers {
+        top: 342px;
+        right: -8px;
+        transform: scale(.52)
     }
 
     .glow-lime {
@@ -766,6 +861,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .case-caption h3, .case-caption p {
         font-size: 15px;
         line-height: 24px
+    }
+
+    .case-cta .case-cover span {
+        font-size: 28px
     }
 
     .services {
