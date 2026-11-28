@@ -16,6 +16,7 @@
     --text-muted: #777;
     --width: 1312px;
     --section-space: 128px;
+    --anchor-offset: 108px;
     --space-8: 8px;
     --space-16: 16px;
     --space-24: 24px;
@@ -23,6 +24,10 @@
     --radius-card: 24px;
     --radius-sticker-major: 16px;
     --radius-sticker-minor: 4px;
+    --radius-shell: 32px;
+    --glass-header-bg: rgba(18, 18, 18, .68);
+    --glass-header-border: rgba(255, 255, 255, .12);
+    --glass-header-blur: 20px;
     --radius-md: var(--radius-button);
     --radius-lg: var(--radius-card);
     --ease-out: cubic-bezier(.2, .8, .2, 1);
@@ -48,6 +53,22 @@ button, input, textarea {
     font: inherit
 }
 
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24
+}
+
 a {
     color: inherit;
     text-decoration: none
@@ -70,12 +91,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .header {
-    height: 108px;
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    z-index: 100;
+    height: 76px;
     display: flex;
     align-items: center;
     gap: 64px;
-    position: relative;
-    z-index: 2
+    padding: 10px 16px;
+    border: 1px solid var(--glass-header-border);
+    border-radius: var(--radius-shell);
+    background: var(--glass-header-bg);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, .24);
+    backdrop-filter: blur(var(--glass-header-blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--glass-header-blur)) saturate(140%);
+    transform: translateX(-50%)
+}
+
+main.shell {
+    padding-top: 108px
 }
 
 .brand {
@@ -86,8 +121,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .brand img {
     display: block;
     width: 162px;
-    height: 55px;
-    transition: transform .45s var(--ease-out), filter .45s
+    height: 55px
 }
 
 .brand-long img {
@@ -104,7 +138,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     line-height: 24px
 }
 
-.navigation a, .footer-bottom a {
+.navigation a, .site-footer a {
     transition: opacity .2s
 }
 
@@ -127,6 +161,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .button span {
     display: inline-block;
     transition: transform .25s
+}
+
+.button .icon {
+    font-size: 20px
 }
 
 .button-light {
@@ -162,6 +200,42 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     letter-spacing: -.015em
 }
 
+.hero-line {
+    display: block;
+    overflow: hidden
+}
+
+.hero-line-inner {
+    display: block;
+    transform: translateY(0)
+}
+
+.js .hero-line-inner {
+    animation: hero-line-reveal .9s var(--ease-out) both
+}
+
+.js .hero-line:nth-child(1) .hero-line-inner {
+    animation-delay: .1s
+}
+
+.js .hero-line:nth-child(2) .hero-line-inner {
+    animation-delay: .17s
+}
+
+.js .hero-line:nth-child(3) .hero-line-inner {
+    animation-delay: .24s
+}
+
+@keyframes hero-line-reveal {
+    from {
+        transform: translateY(110%)
+    }
+
+    to {
+        transform: translateY(0)
+    }
+}
+
 .hero h1 em {
     font-family: 'Science Gothic', Manrope, sans-serif;
     font-style: italic;
@@ -177,10 +251,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .glow {
-    position: absolute;
+    position: fixed;
     border-radius: 50%;
     pointer-events: none;
-    z-index: -1
+    z-index: -1;
+    will-change: transform
 }
 
 .glow-lime {
@@ -188,7 +263,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     height: 540px;
     top: 70px;
     left: calc(50% + 60px);
-    background: radial-gradient(circle, rgba(160, 219, 13, .455) 0 20%, rgba(160, 219, 13, .24) 45%, transparent 72%)
+    background: radial-gradient(circle, rgba(160, 219, 13, .455) 0 20%, rgba(160, 219, 13, .24) 45%, transparent 72%);
+    animation: glow-lime-drift 18s ease-in-out infinite alternate
 }
 
 .glow-rose {
@@ -196,7 +272,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     height: 380px;
     top: 470px;
     left: calc(50% - 620px);
-    background: radial-gradient(circle, rgba(226, 7, 76, .27) 0 20%, rgba(226, 7, 76, .14) 45%, transparent 72%)
+    background: radial-gradient(circle, rgba(226, 7, 76, .27) 0 20%, rgba(226, 7, 76, .14) 45%, transparent 72%);
+    animation: glow-rose-drift 22s ease-in-out infinite alternate
+}
+
+@keyframes glow-lime-drift {
+    from {
+        transform: translate3d(-10px, -6px, 0) scale(1)
+    }
+
+    to {
+        transform: translate3d(24px, 14px, 0) scale(1.09)
+    }
+}
+
+@keyframes glow-rose-drift {
+    from {
+        transform: translate3d(8px, 8px, 0) scale(1.02)
+    }
+
+    to {
+        transform: translate3d(-18px, -12px, 0) scale(1.1)
+    }
 }
 
 .sticker {
@@ -243,6 +340,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     box-shadow: 0 12px 25px #0003
 }
 
+.sticker .icon {
+    margin-left: 4px;
+    font-size: 18px
+}
+
 .hero-sticker-architecture {
     left: 59px;
     top: 0
@@ -285,7 +387,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .cases {
-    scroll-margin-top: 32px
+    scroll-margin-top: var(--anchor-offset)
 }
 
 .section-heading {
@@ -425,12 +527,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .brand:hover img {
-        transform: rotate(-3deg) scale(1.06);
-        filter: drop-shadow(0 4px 12px rgba(226, 7, 76, .35))
-    }
-
-    .navigation a:hover, .footer-bottom a:hover {
+    .navigation a:hover, .site-footer a:hover {
         opacity: .65
     }
 
@@ -491,7 +588,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .services {
     padding-top: var(--section-space);
-    scroll-margin-top: 32px;
+    scroll-margin-top: var(--anchor-offset);
     content-visibility: auto;
     contain-intrinsic-size: auto 900px
 }
@@ -554,12 +651,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     margin: var(--section-space) 0 64px;
     background: var(--white);
     color: var(--ink);
-    border-radius: 32px;
+    position: relative;
+    min-height: 688px;
+    overflow: hidden;
+    border-radius: var(--radius-shell);
     padding: 64px 48px 48px;
     display: flex;
     flex-direction: column;
     gap: 48px;
-    scroll-margin-top: 32px;
+    scroll-margin-top: var(--anchor-offset);
     content-visibility: auto;
     contain-intrinsic-size: auto 760px
 }
@@ -590,14 +690,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     gap: 16px
 }
 
-.contact-details a:first-child {
+.contact-details .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
     font-size: 24px;
-    line-height: 32px
-}
-
-.contact-details a:nth-child(2) {
-    font-size: 18px;
-    line-height: 28px
+    line-height: 32px;
+    width: fit-content
 }
 
 .contact-form {
@@ -676,26 +775,138 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .form-status {
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0
 }
 
-.form-status:empty {
-    display: none
+.form-state-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    border-radius: inherit;
+    background: rgba(255, 254, 254, .1);
+    backdrop-filter: blur(37.15px);
+    -webkit-backdrop-filter: blur(37.15px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .35s var(--ease-out), visibility .35s
 }
 
-.footer-bottom {
+.contact.is-loading .form-state-overlay,
+.contact.is-success .form-state-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto
+}
+
+.form-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.contact.is-loading .form-state-loading,
+.contact.is-success .form-state-success {
+    display: flex
+}
+
+.form-spinner {
+    width: 70px;
+    height: 70px;
+    border: 6px solid var(--color-brand-raspberry);
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: form-spin .85s linear infinite
+}
+
+@keyframes form-spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.form-state-success {
+    gap: 18px;
+    color: var(--color-ink)
+}
+
+.success-sticker {
+    padding: 23.5px 35.25px;
+    border-width: 4px;
+    border-radius: 31px 8px 31px 8px;
+    font-size: 23.5px;
+    line-height: 47px;
+    transform: rotate(-13.31deg);
+    box-shadow: 0 20px 39px rgba(0, 0, 0, .12)
+}
+
+.form-state-success p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 27px
+}
+
+.site-footer {
+    display: grid;
+    grid-template-columns:minmax(0, 1.5fr) repeat(2, minmax(180px, .65fr));
+    gap: 48px;
+    margin-bottom: 64px;
+    padding: 48px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: var(--radius-shell);
+    background: var(--surface-card);
+    color: var(--color-surface)
+}
+
+.site-footer-brand,
+.site-footer-group {
     display: flex;
-    justify-content: flex-end;
-    gap: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px
+}
+
+.site-footer-brand > p,
+.site-footer-group p,
+.site-footer-group a,
+.site-footer-bottom p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px
+}
+
+.site-footer-label {
+    color: var(--color-text-secondary);
+    font-size: 14px !important;
+    line-height: 20px !important
+}
+
+.site-footer-bottom {
+    grid-column:1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, .12)
+}
+
+.site-footer-bottom nav {
+    display: flex;
+    gap: 12px;
     font-size: 14px;
     line-height: 20px
-}
-
-.footer-bottom nav {
-    display: flex;
-    gap: 12px
 }
 
 @media (max-width: 1100px) {
@@ -752,16 +963,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 @media (max-width: 700px) {
+    :root {
+        --anchor-offset: 84px
+    }
+
     .shell {
         width: calc(100% - 32px)
     }
 
     .header {
-        height: auto;
-        min-height: 84px;
-        gap: 16px;
-        flex-wrap: wrap;
-        padding: 14px 0
+        top: 8px;
+        width: calc(100% - 16px);
+        height: 64px;
+        min-height: 64px;
+        gap: 10px;
+        flex-wrap: nowrap;
+        padding: 8px 12px;
+        border-radius: var(--radius-lg)
     }
 
     .brand img {
@@ -770,12 +988,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     }
 
     .brand-long img {
-        width: 145px
+        width: 130px
     }
 
     .navigation {
-        gap: 16px;
-        font-size: 14px
+        gap: 10px;
+        font-size: 12px;
+        line-height: 20px
     }
 
     .header-button {
@@ -947,9 +1166,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         gap: 12px
     }
 
-    .footer-bottom {
-        justify-content: space-between;
+    .site-footer {
+        grid-template-columns:1fr;
+        gap: 32px;
+        margin-bottom: 24px;
+        padding: 32px 24px
+    }
+
+    .site-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start
+    }
+
+    .site-footer-bottom nav {
         flex-wrap: wrap
+    }
+
+    .success-sticker {
+        padding: 16px 24px;
+        font-size: 18px;
+        line-height: 32px
     }
 
     .sticker {
@@ -970,8 +1206,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         transition-duration: .01ms !important
     }
 
+    .glow {
+        animation: none
+    }
+
     .js .reveal {
         opacity: 1;
+        transform: none
+    }
+
+    .js .hero-line-inner {
+        animation: none;
         transform: none
     }
 }
