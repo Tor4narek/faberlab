@@ -137,6 +137,21 @@ main.shell {
     transition: opacity .2s
 }
 
+.navigation a,
+.footer-item,
+.site-footer-bottom a,
+.site-footer-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8)
+}
+
+.nav-icon,
+.footer-icon {
+    flex: none;
+    font-size: 18px
+}
+
 .button {
     --button-start: var(--white);
     display: inline-flex;
@@ -154,7 +169,7 @@ main.shell {
     line-height: 24px;
     white-space: nowrap;
     cursor: pointer;
-    transition: background-position .62s var(--ease-out)
+    transition: background-position 1.25s var(--ease-out)
 }
 
 .button span {
@@ -325,6 +340,15 @@ main.shell {
     width: 310px;
     height: 320px;
     pointer-events: none
+}
+
+.hero-stickers-track,
+.hero-stickers-set {
+    display: contents
+}
+
+.hero-stickers-set-copy {
+    display: none
 }
 
 .hero-stickers .sticker {
@@ -708,7 +732,8 @@ main.shell {
     color: var(--ink);
     font-size: 19px;
     line-height: 28px;
-    padding: 15px 16px
+    padding: 15px 16px;
+    transition: background-color .3s var(--ease-out), box-shadow .4s var(--ease-out), transform .4s var(--ease-out)
 }
 
 .contact-form input {
@@ -726,7 +751,16 @@ main.shell {
 
 .contact-form input:focus, .contact-form textarea:focus {
     background: var(--white);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
+    box-shadow: 0 12px 32px rgba(226, 7, 76, .1);
+    transform: translateY(-2px);
+    animation: field-focus .5s var(--ease-out)
+}
+
+@keyframes field-focus {
+    from {
+        box-shadow: 0 0 0 rgba(226, 7, 76, 0);
+        transform: translateY(0)
+    }
 }
 
 .contact-form .honeypot {
@@ -883,6 +917,10 @@ main.shell {
     line-height: 20px
 }
 
+.site-footer-bottom a {
+    gap: 6px
+}
+
 @media (max-width: 1100px) {
     .shell {
         width: calc(100% - 80px)
@@ -966,9 +1004,23 @@ main.shell {
     }
 
     .navigation {
-        gap: 10px;
-        font-size: 12px;
-        line-height: 20px
+        gap: 8px
+    }
+
+    .navigation a {
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .06)
+    }
+
+    .navigation .nav-label {
+        display: none
+    }
+
+    .navigation .nav-icon {
+        font-size: 19px
     }
 
     .header-button {
@@ -976,7 +1028,7 @@ main.shell {
     }
 
     .hero {
-        min-height: 510px;
+        min-height: 570px;
         padding-top: 110px
     }
 
@@ -988,13 +1040,40 @@ main.shell {
     .hero > p {
         font-size: 18px;
         line-height: 28px;
-        margin-top: 40px
+        margin-top: 32px
     }
 
     .hero-stickers {
-        top: 342px;
-        right: -8px;
-        transform: scale(.52)
+        top: 390px;
+        right: auto;
+        left: calc(50% - 50vw);
+        width: 100vw;
+        height: 76px;
+        overflow: hidden;
+        transform: none
+    }
+
+    .hero-stickers-track {
+        display: flex;
+        width: max-content;
+        animation: stickers-marquee 24s linear infinite;
+        will-change: transform
+    }
+
+    .hero-stickers-set,
+    .hero-stickers-set-copy {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-right: 10px
+    }
+
+    .hero-stickers .sticker {
+        position: static;
+        padding: 10px 15px;
+        font-size: 12px;
+        line-height: 24px;
+        transform: none
     }
 
     .glow-lime {
@@ -1169,6 +1248,12 @@ main.shell {
     }
 }
 
+@keyframes stickers-marquee {
+    to {
+        transform: translateX(-50%)
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto
@@ -1182,6 +1267,11 @@ main.shell {
 
     .glow {
         animation: none
+    }
+
+    .hero-stickers-track {
+        animation: none;
+        transform: translateX(-12%)
     }
 
     .js .reveal {
