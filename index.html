@@ -1,65 +1,210 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="FaberLab — цифровые продукты, разработка сайтов и внедрение ИИ в бизнес.">
-  <meta name="theme-color" content="#000000">
-  <title>FaberLab — продукты для смелых идей</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FaberLab — разработка цифровых продуктов и внедрение ИИ</title>
+    <meta name="description" content="FaberLab проектирует и разрабатывает сайты, веб-приложения и B2B-системы, автоматизирует бизнес-процессы и внедряет ИИ-решения.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://faberlab.tech/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="FaberLab">
+    <meta property="og:url" content="https://faberlab.tech/">
+    <meta property="og:title" content="FaberLab — продукты для смелых идей">
+    <meta property="og:description" content="Разрабатываем сайты, веб-приложения и B2B-системы, оптимизируем бизнес-процессы и внедряем ИИ.">
+    <meta property="og:image" content="https://faberlab.tech/public/assets/og-faberlab.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FaberLab — разрабатываем продукты для смелых идей">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FaberLab — продукты для смелых идей">
+    <meta name="twitter:description" content="Разрабатываем сайты, веб-приложения и B2B-системы, оптимизируем бизнес-процессы и внедряем ИИ.">
+    <meta name="twitter:image" content="https://faberlab.tech/public/assets/og-faberlab.jpg">
+    <meta name="twitter:image:alt" content="FaberLab — разрабатываем продукты для смелых идей">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@500&amp;icon_names=arrow_forward,call,design_services,grid_view,groups,location_on,mail&amp;display=block" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.13.1/dist/js-confetti.browser.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="page" id="top">
-    <div class="glow glow-lime" aria-hidden="true"></div><div class="glow glow-rose" aria-hidden="true"></div>
+<div class="page" id="top">
+    <div class="glow glow-lime" aria-hidden="true"></div>
+    <div class="glow glow-rose" aria-hidden="true"></div>
     <header class="header shell">
-      <a class="brand" href="#top" aria-label="FaberLab — на главную"><img src="public/assets/5ba42.svg" alt="FaberLab"></a>
-      <nav class="navigation" aria-label="Основная навигация"><a href="#cases">Кейсы</a><a href="#services">Услуги</a><a href="#contact">Контакты</a></nav>
-      <a class="button button-light header-button" href="#contact">Обсудить проект <span aria-hidden="true">→</span></a>
+        <a class="brand brand-long" href="#top" aria-label="FaberLab — на главную"><img src="public/assets/9f038b1b25c83ef1dbdeb49d893ff693677ec7a3.svg" alt="FaberLab"></a>
+        <nav class="navigation" aria-label="Основная навигация">
+            <a href="#cases" aria-label="Кейсы"><span class="material-symbols-outlined nav-icon" aria-hidden="true">grid_view</span><span class="nav-label">Кейсы</span></a>
+            <a href="#services" aria-label="Услуги"><span class="material-symbols-outlined nav-icon" aria-hidden="true">design_services</span><span class="nav-label">Услуги</span></a>
+            <a href="#contact" aria-label="Контакты"><span class="material-symbols-outlined nav-icon" aria-hidden="true">mail</span><span class="nav-label">Контакты</span></a>
+        </nav>
+        <a class="button button-light header-button" href="#contact">Обсудить проект
+            <span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></a>
     </header>
     <main class="shell">
-      <section class="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title">Разрабатываем<br><em>продукты</em> для<br>смелых идей.</h1>
-        <p>Создаём цифровые продукты, оптимизируем бизнес-процессы и внедряем ИИ</p>
-        <span class="sticker sticker-lime hero-sticker hero-sticker-top" aria-hidden="true">ОТ ИДЕИ ДО ЗАПУСКА</span>
-        <span class="sticker sticker-raspberry hero-sticker hero-sticker-bottom" aria-hidden="true">ДИЗАЙН + КОД →</span>
-      </section>
-      <section class="cases" id="cases" aria-labelledby="cases-title">
-        <div class="section-heading"><h2 id="cases-title">Кейсы</h2><p>Проекты, в которых дизайн и технологии работают вместе.</p></div>
-        <div class="case-grid">
-          <article class="case reveal"><div class="case-cover"><img src="public/assets/a59bc.png" alt="Интерфейс интернет-магазина Master of Fishing"><span class="sticker sticker-raspberry tag tag-left tag-tilt-left">ДИЗАЙН/РАЗРАБОТКА</span></div><div class="case-caption"><h3>master-of-fishing.com</h3><p>интернет магазин</p></div></article>
-          <article class="case reveal"><div class="case-cover"><img src="public/assets/0e8de.png" alt="Интерфейс проекта Т такси админ"><span class="sticker sticker-raspberry tag tag-right tag-tilt-left">ДИЗАЙН</span></div><div class="case-caption"><h3>Т такси админ</h3><p>продуктовый дизайн</p></div></article>
-          <article class="case reveal"><div class="case-cover"><img src="public/assets/0bfee.png" alt="Экраны сайта Дом культуры"><span class="sticker sticker-lime tag tag-right tag-tilt-right">ДИЗАЙН/РАЗРАБОТКА</span></div><div class="case-caption"><h3>dom-culture.ru</h3><p>корпоративный сайт</p></div></article>
-          <article class="case reveal"><div class="case-cover"><img src="public/assets/7525e.png" alt="Экраны сайта Центра юзабилити ИТМО"><span class="sticker sticker-lime tag tag-right tag-tilt-right">ДИЗАЙН</span></div><div class="case-caption"><h3>uxr.itmo.ru</h3><p>корпоративный сайт</p></div></article>
-          <article class="case reveal"><div class="case-cover"><img src="public/assets/63dde.png" alt="Интерфейсы проекта eventhub"><span class="sticker sticker-lime tag tag-left tag-tilt-left">ДИЗАЙН/РАЗРАБОТКА</span></div><div class="case-caption"><h3>eventhub</h3><p>чат бот и вебапп</p></div></article>
-          <article class="case reveal"><div class="case-cover"><img src="public/assets/0c3e8.png" alt="Обложка онлайн-платформы ФИБИ"><span class="sticker sticker-lime tag tag-left tag-tilt-left">ДИЗАЙН/РАЗРАБОТКА</span></div><div class="case-caption"><h3>ФИБИ</h3><p>онлайн платформа</p></div></article>
-        </div>
-      </section>
-      <section class="services" id="services" aria-labelledby="services-title">
-        <h2 id="services-title">Услуги</h2>
-        <div class="service-grid">
-          <article class="service"><div class="service-content"><p class="eyebrow">01 / УСЛУГА</p><h3>Разработка<br>веб-приложений и сайтов</h3><p>Проектируем и разрабатываем решения для бизнеса: от корпоративного сайта до сложных B2B-порталов и внутренних систем.</p><p class="service-list">Интернет-магазины · Лендинги · ERP/CRM<br>B2B-порталы · Личные кабинеты · Интеграции</p></div><a class="button button-light" href="#contact">Обсудить проект <span aria-hidden="true">→</span></a></article>
-          <article class="service"><div class="service-content"><p class="eyebrow">02 / УСЛУГА</p><h3>Внедрение ИИ в бизнес</h3><p>Изучаем процессы компании, находим задачи, которые можно упростить с помощью ИИ, и внедряем подходящие решения — от ИИ-ассистентов до агентов для автоматизации работы.</p><p class="service-list">Аудит процессов · ИИ-ассистенты и агенты<br>Автоматизация · Интеграции</p></div><a class="button button-light" href="#contact">Обсудить проект <span aria-hidden="true">→</span></a></article>
-        </div>
-      </section>
-      <footer class="contact" id="contact">
-        <div class="contact-heading"><h2>Воплотим вашу идею<br>в реальность вместе.</h2><a class="brand footer-brand" href="#top" aria-label="FaberLab — на главную"><img src="public/assets/5ba42.svg" alt="FaberLab"></a></div>
-        <div class="contact-body"><div class="contact-details"><a href="mailto:faberlab@inbox.ru">faberlab@inbox.ru <span aria-hidden="true">→</span></a><a href="tel:+79118117455">+7 (911) 811 74-55</a></div>
-          <form class="contact-form" id="contact-form" data-endpoint="https://formsubmit.co/ajax/faberlab@inbox.ru" novalidate>
-            <div class="form-row"><label>Ваше имя *<input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required maxlength="100"></label><label>Email *<input name="email" type="email" autocomplete="email" placeholder="you@company.ru" required maxlength="254"></label></div>
-            <label>О проекте<textarea name="message" rows="3" maxlength="3000" placeholder="Расскажите о задаче, сроках и пожеланиях"></textarea></label>
-            <label class="honeypot" aria-hidden="true">Сайт<input name="_honey" tabindex="-1" autocomplete="off"></label>
-            <div class="form-bottom"><button class="button button-dark" type="submit">Отправить заявку <span aria-hidden="true">→</span></button><p>Нажимая «Отправить заявку», вы соглашаетесь на обработку персональных данных.</p></div><p class="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-        <div class="footer-bottom"><span>2026</span><nav aria-label="Навигация в подвале"><a href="#cases">Кейсы</a><span>/</span><a href="#services">Услуги</a><span>/</span><a href="#contact">Контакты</a></nav></div>
-      </footer>
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">
+                <span class="hero-line"><span class="hero-line-inner">Разрабатываем</span></span>
+                <span class="hero-line"><span class="hero-line-inner"><em>продукты</em> для</span></span>
+                <span class="hero-line"><span class="hero-line-inner">смелых идей.</span></span>
+            </h1>
+            <p>Создаём цифровые продукты, оптимизируем бизнес-процессы и внедряем ИИ</p>
+            <div class="hero-stickers" aria-hidden="true">
+                <div class="hero-stickers-track">
+                    <div class="hero-stickers-set">
+                        <span class="sticker sticker-raspberry hero-sticker hero-sticker-architecture">АРХИТЕКТУРА</span>
+                        <span class="sticker sticker-lime hero-sticker hero-sticker-design">ПРОЕКТИРОВАНИЕ</span>
+                        <span class="sticker sticker-raspberry hero-sticker hero-sticker-code">ДИЗАЙН + КОД <span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></span>
+                        <span class="sticker sticker-lime hero-sticker hero-sticker-launch">ОТ ИДЕИ ДО ЗАПУСКА</span>
+                        <span class="sticker sticker-raspberry hero-sticker hero-sticker-ixd">IXD</span>
+                        <span class="sticker sticker-lime hero-sticker hero-sticker-devops">DEVOPS</span>
+                        <span class="sticker sticker-lime hero-sticker hero-sticker-load">ВЫСОКИЕ НАГРУЗКИ</span>
+                    </div>
+                    <div class="hero-stickers-set hero-stickers-set-copy">
+                        <span class="sticker sticker-raspberry">АРХИТЕКТУРА</span><span class="sticker sticker-lime">ПРОЕКТИРОВАНИЕ</span><span class="sticker sticker-raspberry">ДИЗАЙН + КОД <span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></span><span class="sticker sticker-lime">ОТ ИДЕИ ДО ЗАПУСКА</span><span class="sticker sticker-raspberry">IXD</span><span class="sticker sticker-lime">DEVOPS</span><span class="sticker sticker-lime">ВЫСОКИЕ НАГРУЗКИ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cases" id="cases" aria-labelledby="cases-title">
+            <div class="section-heading"><h2 id="cases-title">Кейсы</h2>
+                <p>Проекты, в которых дизайн и технологии работают вместе.</p></div>
+            <div class="case-grid">
+                <article class="case reveal">
+                    <div class="case-cover">
+                        <img src="public/assets/a59bc.png" alt="Интерфейс интернет-магазина Master of Fishing"><span class="sticker sticker-raspberry tag tag-left tag-tilt-left">ДИЗАЙН/РАЗРАБОТКА</span>
+                    </div>
+                    <div class="case-caption"><h3>master-of-fishing.com</h3>
+                        <p>интернет магазин</p></div>
+                </article>
+                <article class="case reveal">
+                    <div class="case-cover">
+                        <img src="public/assets/0e8de.png" alt="Интерфейс проекта Т такси админ"><span class="sticker sticker-raspberry tag tag-right tag-tilt-left">ДИЗАЙН</span>
+                    </div>
+                    <div class="case-caption"><h3>Т такси админ</h3>
+                        <p>продуктовый дизайн</p></div>
+                </article>
+                <article class="case reveal">
+                    <div class="case-cover">
+                        <img src="public/assets/0bfee.png" alt="Экраны сайта Дом культуры"><span class="sticker sticker-lime tag tag-right tag-tilt-right">ДИЗАЙН/РАЗРАБОТКА</span>
+                    </div>
+                    <div class="case-caption"><h3>dom-culture.ru</h3>
+                        <p>корпоративный сайт</p></div>
+                </article>
+                <article class="case reveal">
+                    <div class="case-cover"><img src="public/assets/7525e.png" alt="Экраны сайта Центра юзабилити ИТМО"><span class="sticker sticker-lime tag tag-right tag-tilt-right">ДИЗАЙН</span>
+                    </div>
+                    <div class="case-caption"><h3>uxr.itmo.ru</h3>
+                        <p>корпоративный сайт</p></div>
+                </article>
+                <article class="case reveal">
+                    <div class="case-cover">
+                        <img src="public/assets/63dde.png" alt="Интерфейсы проекта eventhub"><span class="sticker sticker-lime tag tag-left tag-tilt-left">ДИЗАЙН/РАЗРАБОТКА</span>
+                    </div>
+                    <div class="case-caption"><h3>eventhub</h3>
+                        <p>чат бот и вебапп</p></div>
+                </article>
+                <article class="case reveal">
+                    <div class="case-cover">
+                        <img src="public/assets/0c3e8.png" alt="Обложка онлайн-платформы ФИБИ"><span class="sticker sticker-lime tag tag-left tag-tilt-left">ДИЗАЙН/РАЗРАБОТКА</span>
+                    </div>
+                    <div class="case-caption"><h3>ФИБИ</h3>
+                        <p>онлайн платформа</p></div>
+                </article>
+                <article class="case case-cta reveal">
+                    <a class="case-cover" href="#contact"><span>Ваш продукт</span></a>
+                </article>
+            </div>
+        </section>
+        <section class="services" id="services" aria-labelledby="services-title">
+            <h2 id="services-title">Услуги</h2>
+            <div class="service-grid">
+                <article class="service">
+                    <div class="service-content"><p class="eyebrow">01 / УСЛУГА</p>
+                        <h3>Разработка<br>веб-приложений и сайтов</h3>
+                        <p>Проектируем и разрабатываем решения для бизнеса: от корпоративного сайта до сложных
+                            B2B-порталов и внутренних систем.</p>
+                        <p class="service-list">Интернет-магазины · Лендинги · ERP/CRM<br>B2B-порталы · Личные кабинеты
+                            · Интеграции</p></div>
+                    <a class="button button-light" href="#contact">Обсудить проект <span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></a>
+                </article>
+                <article class="service">
+                    <div class="service-content"><p class="eyebrow">03 / УСЛУГА</p>
+                        <h3>ИИ автоматизация</h3>
+                        <p>Анализируем процессы компании, находим задачи для автоматизации и внедряем ИИ-решения — от
+                            обработки данных до создания ИИ-агентов.</p>
+                        <p class="service-list">Аудит процессов · ИИ-агенты · Автоматизация задач<br>Интеграции · Бизнес-анализ</p></div>
+                    <a class="button button-light" href="#contact">Обсудить проект <span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></a>
+                </article>
+            </div>
+        </section>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="contact-heading"><h2 id="contact-title">Воплотим вашу идею<br>в реальность вместе.</h2>
+                <a class="brand footer-brand" href="#top" aria-label="FaberLab — на главную"><img src="public/assets/e4140bde89163dca9c97322768b4e4ae6ed0ac7e.svg" alt="FaberLab"></a>
+            </div>
+            <div class="contact-body">
+                <div class="contact-details">
+                    <a class="contact-link" href="mailto:faberlab@mail.ru">faberlab@mail.ru<span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></a>
+                    <a class="contact-link" href="tel:+79118117455">+7 (911) 811 74-55<span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></a>
+                </div>
+                <form class="contact-form" id="contact-form" data-endpoint="https://formsubmit.co/ajax/faberlab@mail.ru" novalidate>
+                    <div class="form-row"><label>Как к вам обращаться?
+                        *<input name="name" type="text" autocomplete="name" placeholder="Иван Иванович" required maxlength="100"></label><label>Email
+                        *<input name="email" type="email" autocomplete="email" placeholder="you@company.ru" required maxlength="254"></label>
+                    </div>
+                    <label>О
+                        проекте<textarea name="message" rows="3" maxlength="3000" placeholder="Мы хотим CRM-систему для школы"></textarea></label>
+                    <label class="honeypot" aria-hidden="true">Сайт<input name="_honey" tabindex="-1" autocomplete="off"></label>
+                    <div class="form-bottom">
+                        <button class="button button-dark" type="submit"><span class="button-label">Отправить заявку</span>
+                            <span class="material-symbols-outlined icon" aria-hidden="true">arrow_forward</span></button>
+                        <p>Нажимая «Отправить заявку», вы соглашаетесь на обработку персональных данных.</p></div>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            <div class="form-state-overlay" aria-hidden="true">
+                <div class="form-state form-state-loading">
+                    <span class="form-spinner" aria-hidden="true"></span>
+                </div>
+                <div class="form-state form-state-success">
+                    <span class="sticker sticker-lime success-sticker">УСПЕШНО!</span>
+                    <p>скоро мы свяжемся с вами</p>
+                </div>
+            </div>
+        </section>
+        <footer class="site-footer">
+            <div class="site-footer-brand">
+                <a class="brand brand-long" href="#top" aria-label="FaberLab — на главную"><img src="public/assets/9f038b1b25c83ef1dbdeb49d893ff693677ec7a3.svg" alt="FaberLab"></a>
+                <p>Создаём цифровые продукты для смелых идей.</p>
+            </div>
+            <div class="site-footer-group">
+                <p class="site-footer-label"><span class="material-symbols-outlined footer-icon" aria-hidden="true">mail</span>Контакты</p>
+                <a class="footer-item" href="mailto:faberlab@mail.ru"><span class="material-symbols-outlined footer-icon" aria-hidden="true">mail</span>faberlab@mail.ru</a>
+                <a class="footer-item" href="tel:+79118117455"><span class="material-symbols-outlined footer-icon" aria-hidden="true">call</span>+7 (911) 811 74-55</a>
+            </div>
+            <div class="site-footer-group">
+                <p class="site-footer-label"><span class="material-symbols-outlined footer-icon" aria-hidden="true">groups</span>Команда</p>
+                <p class="footer-item"><span class="material-symbols-outlined footer-icon" aria-hidden="true">groups</span>FaberLab team</p>
+                <p class="footer-item"><span class="material-symbols-outlined footer-icon" aria-hidden="true">location_on</span>Санкт-Петербург</p>
+            </div>
+            <div class="site-footer-bottom">
+                <p>© <span data-copyright-years>2025–2026</span> FaberLab</p>
+                <nav aria-label="Навигация в подвале">
+                    <a href="#cases"><span class="material-symbols-outlined footer-icon" aria-hidden="true">grid_view</span>Кейсы</a><span>/</span><a href="#services"><span class="material-symbols-outlined footer-icon" aria-hidden="true">design_services</span>Услуги</a><span>/</span><a href="#contact"><span class="material-symbols-outlined footer-icon" aria-hidden="true">mail</span>Контакты</a>
+                </nav>
+            </div>
+        </footer>
     </main>
-  </div>
-  <div class="case-cursor" aria-hidden="true">скоро</div>
+</div>
+<div class="case-cursor" aria-hidden="true">скоро</div>
 </body>
 </html>
 
