@@ -1,5 +1,18 @@
 document.documentElement.classList.add('js');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const confetti = window.JSConfetti && !reducedMotion.matches ? new window.JSConfetti() : null;
+
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.disabled) return;
+        confetti?.addConfetti({
+            confettiColors: ['#a0db0d', '#e2074c', '#ffad2a'],
+            confettiRadius: 3,
+            confettiNumber: 28
+        });
+    });
+});
+
 const revealItems = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && !reducedMotion.matches) {
     const observer = new IntersectionObserver((entries, currentObserver) => {
@@ -100,8 +113,6 @@ if (form) {
     const button = form.querySelector('button[type="submit"]');
     const buttonLabel = button.querySelector('.button-label');
     const controls = form.querySelectorAll('input, textarea, button');
-    const confetti = window.JSConfetti && !reducedMotion.matches ? new window.JSConfetti() : null;
-
     const setControlsDisabled = disabled => controls.forEach(control => {
         control.disabled = disabled;
     });
